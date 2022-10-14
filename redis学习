@@ -1,0 +1,8 @@
+redis基本数据结构:string hash list set zset
+advance: hyperloglog bitmap geohash streams
+
+redis持久化:
+ rdb:一次性全量备份 以快照RDB的形式将数据持久化到磁盘的一个二进制文件dump.rdb
+ rdb中save会阻塞进程，bgsave会创建子进程持久化，不阻塞主进程
+ 
+ aof：是连续的增量备份，使用AOF做持久化，每个写命令都通过write函数追加到appendonly.aof中
